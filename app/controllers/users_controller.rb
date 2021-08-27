@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update destroy name ]
+
+  def name
+    name = {
+      first_name: @user.first_name,
+      last_name: @user.last_name,
+      full_name: @user.full_name
+    }
+    render json: name
+  end
 
   def count
     @total_count = User.count
