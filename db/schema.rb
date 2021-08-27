@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -20,5 +22,4 @@ ActiveRecord::Schema.define(version: 2021_08_27_103211) do
     t.integer "age"
     t.string "gender"
   end
-
 end

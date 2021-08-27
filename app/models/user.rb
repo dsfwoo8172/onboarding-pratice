@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   GENDER = %w[male female others]
   validates :first_name, :last_name, presence: true
