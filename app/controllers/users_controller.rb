@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
+  def count
+    @total_count = User.count
+    render json: @total_count
+  end
+
   # GET /users or /users.json
   def index
     @users = User.all
