@@ -1,7 +1,17 @@
 # frozen_string_literal: true
 
-class User < ApplicationRecord
+class User
+
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
   GENDER = %w[male female others]
+
+  field :first_name, type: String
+  field :last_name, type: String
+  field :gender, type: String
+  field :age, type: Integer
+
   validates :first_name, :last_name, presence: true
   validates :gender, inclusion: { in: GENDER,
                                   message: "Please fill one of options in. EX: #{GENDER}.join(' ')" }
