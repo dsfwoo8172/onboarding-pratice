@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :users do
     collection do
       get :count
     end
-    
+
     member do
       get :name, to: 'users#name'
     end
