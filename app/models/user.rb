@@ -3,6 +3,7 @@
 class User
 
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   GENDER = %w[male female others]
 
