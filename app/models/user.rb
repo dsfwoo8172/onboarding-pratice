@@ -24,7 +24,7 @@ class User
   def only_county_address_1_and_address_2
     unpermit_keys = address.keys - ADDRESS
 
-    errors.add :address, :invalid, message: "#{unpermit_keys.join(' ')} is not allowed" if unpermit_keys != []
+    errors.add :address, :invalid, message: "#{unpermit_keys.join(' ')} is not allowed" if unpermit_keys.present?
   end
 
   def full_name
