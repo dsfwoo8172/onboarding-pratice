@@ -21,6 +21,36 @@
     <%= form.text_field :last_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, options_for_select(User::GENDER, user.gender), include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :county %>
+    <%= form.text_field :address, name: 'user[address][county]' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_1 %>
+    <%= form.text_field :address, name: 'user[address][address_1]' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_2 %>
+    <%= form.text_field :address, name: 'user[address][address_2]' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_2 %>
+    <%= form.text_field :address, name: 'user[address][aaa]' %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
