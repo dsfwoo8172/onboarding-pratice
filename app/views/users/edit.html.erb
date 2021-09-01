@@ -1,6 +1,64 @@
+<% content_for :head_angular_js do  %>
+  app.value('user_config', {
+    gender_options: <%=raw User::GENDER %>
+  });
+<% end %>
+
 <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+<div ng-app="UsersEditApp">
+  <div ng-controller="UsersEditController">
+    <form ng-submit="submit()" ng-controller="SubmitController" name="UserEditForm" novalidate>
+
+      <div class="field">
+        <label for="first_name">First name</label>
+        <input type="text" ng-model="user.first_name" id="first_name" name="firstName" required>
+        <div ng-show="UserEditForm.firstName.$error.required">Tell us your first name.</div>
+      </div>
+
+
+      <div class="field">
+        <label for="last_name">Last name</label>
+        <input type="text" ng-model="user.last_name" id="last_name" name="lastName" required>
+        <div ng-show="UserEditForm.lastName.$error.required">Tell us your last name.</div>
+      </div>
+
+      <div class="field">
+        <label for="age">Age</label>
+        <input type="number" ng-model="user.age" id="age" name="age" required>
+        <div ng-show="UserEditForm.age.$error.required">Tell us your age.</div>
+      </div>
+
+      <div class="field">
+        <label for="gender">Gender</label>
+        <select name="genderSelect" ng-model="user.gender">
+          <option ng-repeat="option in config.gender_options" value="{{ option }}">{{ option }}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="county">County</label>
+        <input type="text" ng-model="user.address.county" id="county">
+      </div>
+
+      <div class="field">
+        <label for="address_1">Address_1</label>
+        <input type="text" ng-model="user.address.address_1" id="address_1">
+      </div>
+      
+      <div class="field">
+        <label for="address_2">Address_2</label>
+        <input type="text" ng-model="user.address.address_2" id="address_2">
+      </div>
+
+      <button>Submit</button>
+    </form>
+  </div>
+</div>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
+
+
+
+
