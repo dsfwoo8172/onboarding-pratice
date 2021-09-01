@@ -51,7 +51,7 @@
         <input type="text" ng-model="user.address.address_2" id="address_2">
       </div>
 
-      <button>Submit</button>
+      <button ng-disabled="UserEditForm.firstName.$error.required || UserEditForm.lastName.$error.required || UserEditForm.age.$error.required">Submit</button>
     </form>
   </div>
 </div>
