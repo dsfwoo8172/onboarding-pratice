@@ -1,6 +1,7 @@
 <% content_for :head_angular_js do  %>
   app.value('user_config', {
-    gender_options: <%=raw User::GENDER %>
+    gender_options: <%=raw User::GENDER %>,
+    user_id: '<%= @user.id %>'
   });
 <% end %>
 
@@ -8,7 +9,7 @@
 
 <div ng-app="UsersEditApp">
   <div ng-controller="UsersEditController">
-    <form ng-submit="submit()" ng-controller="SubmitController" name="UserEditForm" novalidate>
+    <form ng-submit="submit()" name="UserEditForm" novalidate>
 
       <div class="field">
         <label for="first_name">First name</label>
@@ -50,7 +51,7 @@
         <input type="text" ng-model="user.address.address_2" id="address_2">
       </div>
 
-      <button ng-disabled="UserEditForm.firstName.$error.required || UserEditForm.lastName.$error.required || UserEditForm.age.$error.required || UserEditForm.age.$error.pattern">Submit</button>
+      <button ng-disabled="UserEditForm.$invalid">Submit</button>
     </form>
   </div>
 </div>
