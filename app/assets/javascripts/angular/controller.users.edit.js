@@ -2,6 +2,7 @@ var app = angular.module('UsersEditApp', []);
 
 app.controller('UsersEditController', function($scope, $http, user_config) {
   $scope.config = user_config
+  $scope.inteValidation = /^\d+$/
   let userId = location.href.split('/')[4]
 
   let getUser = () => {

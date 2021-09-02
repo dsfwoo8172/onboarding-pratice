@@ -16,7 +16,6 @@
         <div ng-show="UserEditForm.firstName.$error.required">Tell us your first name.</div>
       </div>
 
-
       <div class="field">
         <label for="last_name">Last name</label>
         <input type="text" ng-model="user.last_name" id="last_name" name="lastName" required>
@@ -25,8 +24,8 @@
 
       <div class="field">
         <label for="age">Age</label>
-        <input type="number" ng-model="user.age" id="age" name="age" required>
-        <div ng-show="UserEditForm.age.$error.required">Tell us your age.</div>
+        <input type="number" ng-model="user.age" id="age" name="age" required min="0" integer ng-pattern="inteValidation">
+        <div ng-show="UserEditForm.age.$error.required || UserEditForm.age.$error.pattern">Tell us your age.</div>
       </div>
 
       <div class="field">
@@ -51,7 +50,7 @@
         <input type="text" ng-model="user.address.address_2" id="address_2">
       </div>
 
-      <button ng-disabled="UserEditForm.firstName.$error.required || UserEditForm.lastName.$error.required || UserEditForm.age.$error.required">Submit</button>
+      <button ng-disabled="UserEditForm.firstName.$error.required || UserEditForm.lastName.$error.required || UserEditForm.age.$error.required || UserEditForm.age.$error.pattern">Submit</button>
     </form>
   </div>
 </div>
