@@ -1,5 +1,7 @@
 {
   "name": "onboarding",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "angular": "^1.8.2"
+  }
 }
